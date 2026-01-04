@@ -1,0 +1,41 @@
+{
+    "name": "Python Dev Container with poetry",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils": {
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "installOhMyZshConfig": true,
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+            "plugins": "zsh-autosuggestions zsh-syntax-highlighting",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions.git https://github.com/zsh-users/zsh-syntax-highlighting.git"
+        },
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "username": "vscode",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": "true"
+        }
+    },
+    "containerEnv": {
+        "ZSH_CUSTOM": "/home/vscode/.oh-my-zsh/custom"
+    },
+    "mounts": [],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    // The command to run AFTER the container is created
+    "postCreateCommand": "",
+    // Find k3s cluster config in case it was lost during image rebuild
+    "postStartCommand": "",
+    // Ports you want to forward to your local machine (e.g., a service you deploy)
+    "forwardPorts": []
+}
