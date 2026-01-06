@@ -1,2 +1,4 @@
 project.md
 media_sync.ps1
+__pycache__/
+.env
