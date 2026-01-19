@@ -34,7 +34,6 @@
     },
     // The command to run AFTER the container is created
     "postCreateCommand": "",
-    // Find k3s cluster config in case it was lost during image rebuild
     "postStartCommand": "",
     // Ports you want to forward to your local machine (e.g., a service you deploy)
     "forwardPorts": []

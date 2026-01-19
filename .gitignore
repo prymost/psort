@@ -1,4 +1,5 @@
 project.md
 media_sync.ps1
 __pycache__/
+.pytest_cache/
 .env
