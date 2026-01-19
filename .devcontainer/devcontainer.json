@@ -28,12 +28,20 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-python-envs",
+                "ms-python.autopep8"
             ]
         }
     },
     // The command to run AFTER the container is created
-    "postCreateCommand": "",
+    "postCreateCommand": "poetry install",
     "postStartCommand": "",
     // Ports you want to forward to your local machine (e.g., a service you deploy)
     "forwardPorts": []

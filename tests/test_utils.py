@@ -127,7 +127,7 @@ def test_generate_target_filename(tmp_path):
 
     date_taken = datetime.datetime(2024, 9, 2, 12, 30, 0)
 
-    with patch('src.utils.Path.stat') as mock_stat:
+    with patch("src.utils.Path.stat") as mock_stat:
         mock_stat.return_value.st_size = 123456789
 
         # We pass the Path object directly,
@@ -146,7 +146,7 @@ def test_generate_target_filename_small_size(tmp_path):
 
     date_taken = datetime.datetime(2024, 1, 1, 9, 5, 0)
 
-    with patch('src.utils.Path.stat') as mock_stat:
+    with patch("src.utils.Path.stat") as mock_stat:
         mock_stat.return_value.st_size = 42
 
         filename = generate_target_filename(test_file, date_taken)

@@ -26,9 +26,7 @@ def get_media_date(file_path: Path) -> datetime.datetime:
         date_taken = _get_video_date(file_path)
 
     if not date_taken:
-        logging.debug(
-            f"Metadata missing for {file_path}, using filesystem date."
-        )
+        logging.debug(f"Metadata missing for {file_path}, using filesystem date.")
         timestamp = file_path.stat().st_mtime
         date_taken = datetime.datetime.fromtimestamp(timestamp)
 
@@ -49,9 +47,7 @@ def _get_image_date(file_path: Path):
             date_str = exif.get(0x9003)
 
             if date_str and isinstance(date_str, str):
-                return datetime.datetime.strptime(
-                    date_str, "%Y:%m:%d %H:%M:%S"
-                )
+                return datetime.datetime.strptime(date_str, "%Y:%m:%d %H:%M:%S")
     except Exception as e:
         logging.warning(f"Error reading image metadata for {file_path}: {e}")
         return None

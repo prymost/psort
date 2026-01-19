@@ -32,9 +32,7 @@ def calculate_sha256(file_path: Path) -> str:
     return sha256_hash.hexdigest()
 
 
-def generate_target_filename(
-    file_path: Path, date_taken: datetime.datetime
-) -> str:
+def generate_target_filename(file_path: Path, date_taken: datetime.datetime) -> str:
     """
     Generates filename: DDMonYYYY_HHMM[SizeLast5].ext
     Example: 02Sep2024_122339737.png
