@@ -1,5 +1,6 @@
 project.md
 media_sync.ps1
 __pycache__/
+sort_photos_logs/
 .pytest_cache/
 .env
