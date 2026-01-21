@@ -1,6 +1,22 @@
 project.md
 media_sync.ps1
+
+# Python
 __pycache__/
-sort_photos_logs/
 .pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.spec
+
+# Local Logs
+Transcripts/
+sort_photos_logs/
+
+# Environment/IDE
 .env
+.vscode/
+.idea/

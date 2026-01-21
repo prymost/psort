@@ -13,17 +13,37 @@ The script scans a source folder and organizes media into a structure like `Dest
 - **Collisions**: If two different files have the same name, it appends a short hash to the filename so nothing is overwritten.
 - **Safety**: Includes a `--dry-run` flag to see what would happen before any files are actually touched.
 
-## Setup
+## 📦 Installation
 
-This project uses [Poetry](https://python-poetry.org/) for dependency management.
+This project is managed with [Poetry](https://python-poetry.org/).
 
-```bash
-git clone https://github.com/yourusername/sort_photos.git
-cd sort_photos
-poetry install
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/sort_photos.git
+    cd sort_photos
+    ```
 
-## How to use
+2.  **Install Dependencies:**
+    ```bash
+    poetry install
+    ```
+
+## 🏗️ Building as a standalone binary
+
+If you want to run this tool on a machine without Python or Poetry installed, you can build it as a single executable file.
+
+**Note:** PyInstaller builds a binary for the OS it is running on. Building in the Dev Container produces a Linux binary.
+
+1.  **Build the binary:**
+    ```bash
+    ./scripts/build.sh
+    ```
+2.  **Run the binary:**
+    ```bash
+    ./dist/media-sync --help
+    ```
+
+## 🛠️ Usage
 
 Run the script from the root directory using `src/main.py`.
 

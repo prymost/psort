@@ -56,3 +56,8 @@ poetry run pytest tests
 ```bash
 poetry run python src/main.py --source ./in --destination ./out --dry-run
 ```
+
+**Building the Binary:**
+```bash
+./scripts/build.sh
+```
