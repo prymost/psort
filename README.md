@@ -1,14 +1,66 @@
-# Development Environment
+# Media Sync
 
-This project includes a configuration for a development container to provide a consistent, ready-to-use environment.
+This is a personal script I wrote to help organize my photo and video collection. It's a Python migration of an [old PowerShell script](https://github.com/n2501r/spiderzebra/blob/master/PowerShell/Media_Sync.ps1) I used to use. I'm sharing it here in case anyone else finds it useful for their own library.
 
-## Environment Features
-- **Python**: Latest stable version.
-- **Dependency Management**: [Poetry](https://python-poetry.org/) is pre-installed.
-- **Shell**: Zsh configured with `autosuggestions` and `syntax-highlighting` for better productivity.
+The code was generated with the help of AI and reviewed to ensure it works as intended.
 
-## Usage
-This setup follows the [Dev Container specification](https://containers.dev/). You can use it with:
-- **VS Code** (via the Dev Containers extension)
-- **CLI** (via the `devcontainer` command line tool)
-- Any other IDE or tool that supports the specification.
+## What it does
+
+The script scans a source folder and organizes media into a structure like `Destination/YYYY/MM/`.
+
+- **Sorting**: Uses EXIF data for photos and creation metadata for videos.
+- **Duplicates**: If two files are identical (checked via SHA-256), it can skip them or move them to a separate folder.
+- **Collisions**: If two different files have the same name, it appends a short hash to the filename so nothing is overwritten.
+- **Safety**: Includes a `--dry-run` flag to see what would happen before any files are actually touched.
+
+## Setup
+
+This project uses [Poetry](https://python-poetry.org/) for dependency management.
+
+```bash
+git clone https://github.com/yourusername/sort_photos.git
+cd sort_photos
+poetry install
+```
+
+## How to use
+
+Run the script from the root directory using `src/main.py`.
+
+### Basic examples
+
+**Test without making changes:**
+```bash
+poetry run python src/main.py -s ./my_camera_dump -d ./my_photos --dry-run
+```
+
+**Copy and sort files:**
+```bash
+poetry run python src/main.py -s ./source -d ./destination
+```
+
+**Move files and store duplicates elsewhere:**
+```bash
+poetry run python src/main.py -s ./source -d ./destination --mode move --duplicates-dir ./duplicates
+```
+
+## Development
+
+I've included a suite of tests to make sure the logic holds up.
+
+```bash
+# Run tests
+poetry run pytest tests
+
+# Check formatting
+poetry run black .
+poetry run flake8
+```
+
+## Structure
+
+- `src/main.py`: Entry point and CLI arguments.
+- `src/processor.py`: The logic for scanning and sorting.
+- `src/metadata.py`: Reading dates from images and videos.
+- `src/utils.py`: Hashing, naming, and logging helpers.
+
