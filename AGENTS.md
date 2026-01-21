@@ -28,6 +28,7 @@ This file provides context and rules for AI agents working on this repository.
 *   **Type Hints:** Mandatory for all function signatures.
 *   **Formatting:** Run `poetry run black .` before committing.
 *   **Linting:** Run `poetry run flake8`. Ensure 0 errors.
+*   **CI:** All pushes and PRs must pass the GitHub Actions CI workflow (linting + tests).
 *   **Line Length:** 88 characters (Black standard).
 
 ## 5. Testing Strategy
@@ -61,3 +62,6 @@ poetry run python src/main.py --source ./in --destination ./out --dry-run
 ```bash
 ./scripts/build.sh
 ```
+
+**Releases:**
+*   Binaries for Linux, Windows, and macOS are automatically built and attached to GitHub Releases via `release.yml`.

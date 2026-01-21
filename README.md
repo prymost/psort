@@ -13,17 +13,23 @@ The script scans a source folder and organizes media into a structure like `Dest
 - **Collisions**: If two different files have the same name, it appends a short hash to the filename so nothing is overwritten.
 - **Safety**: Includes a `--dry-run` flag to see what would happen before any files are actually touched.
 
-## 📦 Installation
+**Note on OS Support:** I personally use and test this on Linux and inside a Linux-based Dev Container. While it is designed to be cross-platform and is built for Windows and macOS via GitHub Actions, I have not personally tested those binaries.
 
-This project is managed with [Poetry](https://python-poetry.org/).
+## Setup
 
-1.  **Clone the repository:**
+### Option A: Dev Container (Recommended)
+This project includes a `.devcontainer` configuration. If you use VS Code, you can simply open the folder and click **"Reopen in Container"**. This will automatically set up Python, Poetry, and all dependencies for you in an isolated environment.
+
+### Option B: Manual Setup
+If you prefer to run it locally without containers:
+
+1.  **Install Poetry:** Follow the instructions at [python-poetry.org](https://python-poetry.org/).
+2.  **Clone the repository:**
     ```bash
     git clone https://github.com/yourusername/sort_photos.git
     cd sort_photos
     ```
-
-2.  **Install Dependencies:**
+3.  **Install Dependencies:**
     ```bash
     poetry install
     ```
@@ -32,6 +38,10 @@ This project is managed with [Poetry](https://python-poetry.org/).
 
 If you want to run this tool on a machine without Python or Poetry installed, you can build it as a single executable file.
 
+### Download Pre-built Binaries
+The easiest way is to download the latest binary for your operating system (Windows, Linux, or macOS) from the **[Releases](../../releases)** page on GitHub. These are automatically built on every release.
+
+### Manual Build
 **Note:** PyInstaller builds a binary for the OS it is running on. Building in the Dev Container produces a Linux binary.
 
 1.  **Build the binary:**
@@ -64,9 +74,11 @@ poetry run python src/main.py -s ./source -d ./destination
 poetry run python src/main.py -s ./source -d ./destination --mode move --duplicates-dir ./duplicates
 ```
 
-## Development
+## 🧪 Development
 
 I've included a suite of tests to make sure the logic holds up.
+
+**CI/CD:** Every push to `main` or Pull Request triggers a GitHub Action that runs the full test suite and checks for linting/formatting errors.
 
 ```bash
 # Run tests

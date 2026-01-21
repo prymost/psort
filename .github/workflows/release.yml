@@ -1,0 +1,60 @@
+name: Build and Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            artifact_name: media-sync-linux
+            asset_name: media-sync-linux
+          - os: windows-latest
+            artifact_name: media-sync.exe
+            asset_name: media-sync-windows.exe
+          - os: macos-latest
+            artifact_name: media-sync
+            asset_name: media-sync-macos
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - name: Build with PyInstaller
+        run: |
+          poetry run pyinstaller --onefile --name media-sync --paths src src/main.py
+
+      - name: Rename artifact (Windows)
+        if: matrix.os == 'windows-latest'
+        run: move dist/media-sync.exe dist/${{ matrix.asset_name }}
+        shell: cmd
+
+      - name: Rename artifact (Linux/macOS)
+        if: matrix.os != 'windows-latest'
+        run: mv dist/media-sync dist/${{ matrix.asset_name }}
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.asset_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
