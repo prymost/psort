@@ -7,8 +7,9 @@ from src.utils import setup_logging
 
 
 def parse_args():
+
     parser = argparse.ArgumentParser(
-        description="Organize photos and videos by date metadata."
+        description="psort: Organize photos and videos by date metadata."
     )
 
     parser.add_argument(
@@ -55,7 +56,7 @@ def main():
 
     # 1. Setup Logging
     # We use the destination parent or current dir for logs if dest doesn't exist yet
-    log_file = setup_logging(log_dir_name="sort_photos_logs")
+    log_file = setup_logging(log_dir_name="psort_logs")
     print(f"Log file created at: {log_file}")
 
     # 2. Validate Paths

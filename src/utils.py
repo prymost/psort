@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def setup_logging(
-    log_dir_name: str = "/tmp/logs", log_file_name_prefix: str = "sync_photos"
+    log_dir_name: str = "/tmp/logs", log_file_name_prefix: str = "psort"
 ) -> Path:
     log_dir = Path(log_dir_name)
     log_dir.mkdir(parents=True, exist_ok=True)

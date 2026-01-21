@@ -1,4 +1,4 @@
-# Media Sync
+# psort (Photo Sort)
 
 This is a personal script I wrote to help organize my photo and video collection. It's a Python migration of an [old PowerShell script](https://github.com/n2501r/spiderzebra/blob/master/PowerShell/Media_Sync.ps1) I used to use. I'm sharing it here in case anyone else finds it useful for their own library.
 
@@ -26,8 +26,8 @@ If you prefer to run it locally without containers:
 1.  **Install Poetry:** Follow the instructions at [python-poetry.org](https://python-poetry.org/).
 2.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/sort_photos.git
-    cd sort_photos
+    git clone https://github.com/yourusername/psort.git
+    cd psort
     ```
 3.  **Install Dependencies:**
     ```bash
@@ -50,7 +50,7 @@ The easiest way is to download the latest binary for your operating system (Wind
     ```
 2.  **Run the binary:**
     ```bash
-    ./dist/media-sync --help
+    ./dist/psort --help
     ```
 
 ## 🛠️ Usage
@@ -95,4 +95,3 @@ poetry run flake8
 - `src/processor.py`: The logic for scanning and sorting.
 - `src/metadata.py`: Reading dates from images and videos.
 - `src/utils.py`: Hashing, naming, and logging helpers.
-

@@ -44,7 +44,7 @@ def test_setup_logging_defaults(tmp_path):
         # Assertions
         mock_mkdir.assert_called_once_with(parents=True, exist_ok=True)
 
-        expected_name = "sync_photos_10-27-2023_103000.log"
+        expected_name = "psort_10-27-2023_103000.log"
         assert log_file.name == expected_name
         assert str(log_file.parent) == "/tmp/logs"
 

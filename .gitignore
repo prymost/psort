@@ -1,6 +1,3 @@
-project.md
-media_sync.ps1
-
 # Python
 __pycache__/
 .pytest_cache/
@@ -14,7 +11,7 @@ build/
 
 # Local Logs
 Transcripts/
-sort_photos_logs/
+psort_logs/
 
 # Environment/IDE
 .env

@@ -1,4 +1,4 @@
-# AI Agent Instructions for 'Media Sync'
+# AI Agent Instructions for 'psort'
 
 This file provides context and rules for AI agents working on this repository.
 
