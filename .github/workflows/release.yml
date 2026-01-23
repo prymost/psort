@@ -46,14 +46,14 @@ jobs:
         run: |
           poetry run pyinstaller --onefile --name psort --paths src src/main.py
 
-      - name: Rename artifact (Windows)
-        if: matrix.os == 'windows-latest'
-        run: move dist/psort.exe dist/${{ matrix.asset_name }}
-        shell: cmd
-
-      - name: Rename artifact (Linux/macOS)
-        if: matrix.os != 'windows-latest'
-        run: mv dist/psort dist/${{ matrix.asset_name }}
+      - name: Rename artifact
+        shell: bash
+        run: |
+          if [ "${{ matrix.os }}" == "windows-latest" ]; then
+            mv dist/psort.exe dist/${{ matrix.asset_name }}
+          else
+            mv dist/psort dist/${{ matrix.asset_name }}
+          fi
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
