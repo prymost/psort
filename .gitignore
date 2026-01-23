@@ -12,6 +12,7 @@ build/
 # Local Logs
 Transcripts/
 psort_logs/
+conductor/
 
 # Environment/IDE
 .env
