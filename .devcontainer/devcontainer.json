@@ -41,7 +41,7 @@
         }
     },
     // The command to run AFTER the container is created
-    "postCreateCommand": "poetry install",
+    "postCreateCommand": "poetry install && poetry run pre-commit install",
     "postStartCommand": "",
     // Ports you want to forward to your local machine (e.g., a service you deploy)
     "forwardPorts": []
