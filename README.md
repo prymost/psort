@@ -26,7 +26,7 @@ If you prefer to run it locally without containers:
 1.  **Install Poetry:** Follow the instructions at [python-poetry.org](https://python-poetry.org/).
 2.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/psort.git
+    git clone https://github.com/prymost/psort.git
     cd psort
     ```
 3.  **Install Dependencies:**
@@ -40,6 +40,12 @@ If you want to run this tool on a machine without Python or Poetry installed, yo
 
 ### Download Pre-built Binaries
 The easiest way is to download the latest binary for your operating system (Windows, Linux, or macOS) from the **[Releases](../../releases)** page on GitHub. These are automatically built on every release.
+
+#### Quick Install (Linux)
+You can download and install the latest release with a single command:
+```bash
+sudo curl -L -o /usr/local/bin/psort https://github.com/prymost/psort/releases/latest/download/psort-linux && sudo chmod +x /usr/local/bin/psort
+```
 
 ### Manual Build
 **Note:** PyInstaller builds a binary for the OS it is running on. Building in the Dev Container produces a Linux binary.
