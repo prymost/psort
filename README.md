@@ -61,28 +61,33 @@ sudo curl -L -o /usr/local/bin/psort https://github.com/prymost/psort/releases/l
 
 ## 🛠️ Usage
 
-Run the script from the root directory using `src/main.py`.
-
 ### Basic examples
 
-**Test without making changes:**
+**Test without making changes (Dry Run):**
+Always a good idea to run this first!
 ```bash
-poetry run python src/main.py -s ./my_camera_dump -d ./my_photos --dry-run
+psort -s ./my_camera_dump -d ./my_photos --dry-run
 ```
 
 **Copy and sort files:**
+Safely copies files from source to destination, organizing them by date.
 ```bash
-poetry run python src/main.py -s ./source -d ./destination
+psort -s ./input_folder -d ./organized_photos
 ```
 
-**Move files and store duplicates elsewhere:**
+**Move files and separate duplicates:**
+Moves files instead of copying. If a duplicate is found, it's moved to a separate folder instead of being deleted or skipped.
 ```bash
-poetry run python src/main.py -s ./source -d ./destination --mode move --duplicates-dir ./duplicates
+psort -s ./input_folder -d ./organized_photos --mode move --duplicates-dir ./duplicates
+```
+
+### Running from Source
+If you are developing or haven't installed the binary, you can run the script directly using Poetry:
+```bash
+poetry run python src/main.py -s ./source -d ./dest --dry-run
 ```
 
 ## 🧪 Development
-
-I've included a suite of tests to make sure the logic holds up.
 
 **CI/CD:** Every push to `main` or Pull Request triggers a GitHub Action that runs the full test suite and checks for linting/formatting errors.
 
